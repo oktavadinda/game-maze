@@ -18,6 +18,7 @@ import model.Tempat;
  * @author user only
  */
 public class TempatPanel extends JPanel {
+
     private Tempat tempat;
 
     public TempatPanel() {
@@ -26,7 +27,6 @@ public class TempatPanel extends JPanel {
     public TempatPanel(Tempat tempat) {
         this.tempat = tempat;
     }
-
 
     /**
      * Fungsi untuk menggambar di panel
@@ -43,11 +43,19 @@ public class TempatPanel extends JPanel {
         if (tempat != null) {
             for (int i = 0; i < tempat.getDaftarSel().size(); i++) {
                 Sel sel = tempat.getDaftarSel().get(i);
-                g.setColor(sel.getWarna());
-                g.fillOval(sel.getPosisiX(),
-                        sel.getPosisiY(),
-                        sel.getLebar(),
-                        sel.getTinggi());
+                if (sel.getNilai() == '@') {
+                    g.setColor(sel.getWarna());
+                    g.fillRect(sel.getPosisiX(),
+                            sel.getPosisiY(),
+                            sel.getLebar(),
+                            sel.getTinggi());
+                } else {
+                    g.setColor(sel.getWarna());
+                    g.fillOval(sel.getPosisiX(),
+                            sel.getPosisiY(),
+                            sel.getLebar(),
+                            sel.getTinggi());
+                }
             }
         }
     }
