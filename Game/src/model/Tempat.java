@@ -31,7 +31,7 @@ public class Tempat {
     
     /**
      * Fungsi pembaca file konfigurasi.
-     * Hasil pembacaan file akan disimpan di atribut 'isi'.
+     * Hasil pembacaan file akan disimpan di atribut 'isi' dan juga di atribut daftarSel
      * @param file 
      */
     public void bacaKonfigurasi(File file){
