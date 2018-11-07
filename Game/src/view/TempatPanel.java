@@ -8,6 +8,7 @@ package view;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.LayoutManager;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import model.Sel;
 import model.Tempat;
@@ -17,7 +18,6 @@ import model.Tempat;
  * @author user only
  */
 public class TempatPanel extends JPanel {
-
     private Tempat tempat;
 
     public TempatPanel() {
@@ -26,6 +26,7 @@ public class TempatPanel extends JPanel {
     public TempatPanel(Tempat tempat) {
         this.tempat = tempat;
     }
+
 
     /**
      * Fungsi untuk menggambar di panel
@@ -45,8 +46,8 @@ public class TempatPanel extends JPanel {
                 g.setColor(sel.getWarna());
                 g.fillOval(sel.getPosisiX(),
                         sel.getPosisiY(),
-                        20,
-                        20);
+                        sel.getLebar(),
+                        sel.getTinggi());
             }
         }
     }

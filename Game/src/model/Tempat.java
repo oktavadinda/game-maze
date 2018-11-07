@@ -19,9 +19,15 @@ public class Tempat {
     private ArrayList<Sel> daftarSel; // daftar sel
 
     private String isi; // isi file konfigurasi
+    
+    public static int batasKanan;
+    public static int batasBawah;
+    
     public Tempat() {
         daftarSel = new ArrayList<Sel>();
     }
+    
+    
     
     /**
      * Fungsi pembaca file konfigurasi.

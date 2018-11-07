@@ -8,7 +8,6 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.FlowLayout;
-import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -27,7 +26,6 @@ import model.Sel;
  * @author user only
  */
 public class GameFrame extends JFrame {
-
     private TempatPanel tempatPanel;
 
     private JLabel perintahlabel;
@@ -46,9 +44,10 @@ public class GameFrame extends JFrame {
 
     public GameFrame(String title, TempatPanel tempatPanel) {
         setTitle(title);
-        this.tempatPanel=tempatPanel;
+        this.tempatPanel = tempatPanel;
         this.init();
     }
+
     public void init() {
         // set ukuran dan layout
         this.setSize(500, 300);
@@ -89,7 +88,7 @@ public class GameFrame extends JFrame {
         okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pindah();
+                pindahKanan();
             }
         });
 
@@ -107,14 +106,12 @@ public class GameFrame extends JFrame {
     /**
      * Fungsi untuk memindahkan sel dan menggambar ulang
      */
-    public void pindah() {
+    public void pindahKanan() {
         // posisiX seluruh sel ditambah 20
         // sehingga sel akan terlihat bergerak ke kanan
         for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
             // set posisiX yang baru
-            int nilai = getTempatPanel().getTempat().getDaftarSel().get(i).getPosisiX();
-            nilai = nilai + 10;
-            getTempatPanel().getTempat().getDaftarSel().get(i).setPosisiX(nilai);
+            getTempatPanel().getTempat().getDaftarSel().get(i).geserKanan();
         }
         // gambar ulang tempat Panel
         getTempatPanel().repaint();
