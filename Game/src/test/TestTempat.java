@@ -20,10 +20,12 @@ public class TestTempat {
         Tempat tempat = new Tempat();
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             tempat.bacaKonfigurasi(jf.getSelectedFile());
+            // menampilkan atribut 'isi' dari kelas Tempat
             System.out.println("Isi peta = ");
             System.out.println(tempat.getIsi());
             if(tempat.getDaftarSel()!=null){
                 for (int i = 0; i < tempat.getDaftarSel().size(); i++) {
+                    // menampilkan nilai posisiX,posisiY dan nilai
                     System.out.println(
                             tempat.getDaftarSel().get(i).getPosisiX()+","
                             +tempat.getDaftarSel().get(i).getPosisiY()+","
