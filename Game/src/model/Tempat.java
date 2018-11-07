@@ -7,7 +7,12 @@ package model;
 
 import java.awt.Color;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,7 +40,27 @@ public class Tempat {
      * @param file 
      */
     public void bacaKonfigurasi(File file){
-        
+        this.isi = "";
+        int data;
+        int baris = 0;
+        int kolom = 0;
+        boolean hasil = false;
+        Tempat pointer = new Tempat();
+        try {
+            FileInputStream input = new FileInputStream(file);
+            while((data = input.read()) != -1){
+                isi = isi +(char) data;
+                if ((char)data!= '\n') {
+                    Sel sel= new Sel(baris, kolom, (char) data);
+                    this.tambahSel(sel);
+                    kolom++;
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Tempat.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Tempat.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     /**
      * Fungsi penambah daftar sel.
