@@ -12,9 +12,8 @@ import java.awt.Color;
  * @author user only
  */
 public class Sel {
-
-    private int posisiX;
-    private int posisiY;
+    private int posisiX; // nomor baris, dimulai dari nol (0)
+    private int posisiY; // nomor kolom, dimulai dari nol (0)
     private int lebar;
     private int tinggi;
 
