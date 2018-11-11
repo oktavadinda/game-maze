@@ -40,20 +40,20 @@ public class Tempat {
      * @param file 
      */
     public void bacaKonfigurasi(File file){
-        this.isi = "";
+        this.isi = ""; 
         int data;
         int baris = 0;
         int kolom = 0;
-        boolean hasil = false;
-        Tempat pointer = new Tempat();
-        try {
-            FileInputStream input = new FileInputStream(file);
-            while((data = input.read()) != -1){
-                isi = isi +(char) data;
-                if ((char)data!= '\n') {
+        boolean hasil = false; //boolean untuk menentukan hasil yaitu false
+        Tempat pointer = new Tempat(); //variable pointer meenggunakan tipe class tempat
+        try { 
+            FileInputStream input = new FileInputStream(file); //buat variable input 
+            while((data = input.read()) != -1){  // while dengan parameter data = input.read tidak sama dengan -1
+                isi = isi +(char) data; 
+                if ((char)data!= '\n') {  //deklarasi if dengan parameter data tidak sama dengan tab
                     Sel sel= new Sel(baris, kolom, (char) data);
                     this.tambahSel(sel);
-                    kolom++;
+                    kolom++; //kolom = kolom + 1
                 }
             }
         } catch (FileNotFoundException ex) {
