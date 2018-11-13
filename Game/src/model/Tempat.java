@@ -136,4 +136,7 @@ public class Tempat {
         return 0;
     }
 
+    public int geserAtas() {
+        return 0;
+    }
 }
