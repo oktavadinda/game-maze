@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author user only
+ * @author okta v.
  */
 public class Tempat {
     private int tinggi; // tinggi tempat Game
