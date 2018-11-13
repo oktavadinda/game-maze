@@ -139,4 +139,7 @@ public class Tempat {
     public int geserAtas() {
         return 0;
     }
+    public int geserBawah(){
+        return 0;
+    }
 }
