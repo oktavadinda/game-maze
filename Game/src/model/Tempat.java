@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -79,6 +80,13 @@ public class Tempat {
         return tinggi;
     }
 
+//    public void perintahGerak(String input){
+//        String in[] = input.split(" ");
+//        if (in.length > 2) {
+//            JOptionPane.showMessageDialog(null, "Jumlah");
+//        }
+        
+//    }
     /**
      * @param tinggi the tinggi to set
      */
@@ -128,18 +136,18 @@ public class Tempat {
         this.isi = isi;
     }
 
-    public int geserKiri() {
-        return 0;
-    }
-
-    public int geserKanan() {
-        return 0;
-    }
-
-    public int geserAtas() {
-        return 0;
-    }
-    public int geserBawah(){
-        return 0;
-    }
+//    public int geserKiri() {
+//        return 0;
+//    }
+//
+//    public int geserKanan() {
+//        return 0;
+//    }
+//
+//    public int geserAtas() {
+//        return 0;
+//    }
+//    public int geserBawah(){
+//        return 0;
+//    }
 }
