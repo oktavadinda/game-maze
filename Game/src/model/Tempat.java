@@ -125,4 +125,7 @@ public class Tempat {
     public void setIsi(String isi) {
         this.isi = isi;
     }
+    public int geserKiri(){
+        return 0;
+    }
 }
