@@ -19,39 +19,39 @@ import java.util.logging.Logger;
  * @author okta v.
  */
 public class Tempat {
+
     private int tinggi; // tinggi tempat Game
     private int lebar;  // lebar tempat Game
     private ArrayList<Sel> daftarSel; // daftar sel
 
     private String isi; // isi file konfigurasi
-    
+
     public static int batasKanan;
     public static int batasBawah;
-    
+
     public Tempat() {
         daftarSel = new ArrayList<Sel>();
     }
-    
-    
-    
+
     /**
-     * Fungsi pembaca file konfigurasi.
-     * Hasil pembacaan file akan disimpan di atribut 'isi' dan juga di atribut daftarSel
-     * @param file 
+     * Fungsi pembaca file konfigurasi. Hasil pembacaan file akan disimpan di
+     * atribut 'isi' dan juga di atribut daftarSel
+     *
+     * @param file
      */
-    public void bacaKonfigurasi(File file){
-        this.isi = ""; 
+    public void bacaKonfigurasi(File file) {
+        this.isi = "";
         int data;
         int baris = 0;
         int kolom = 0;
         boolean hasil = false; //boolean untuk menentukan hasil yaitu false
         Tempat pointer = new Tempat(); //variable pointer meenggunakan tipe class tempat
-        try { 
+        try {
             FileInputStream input = new FileInputStream(file); //buat variable input 
-            while((data = input.read()) != -1){  // while dengan parameter data = input.read tidak sama dengan -1
-                isi = isi +(char) data; 
-                if ((char)data!= '\n') {  //deklarasi if dengan parameter data tidak sama dengan tab
-                    Sel sel= new Sel(baris, kolom, (char) data);
+            while ((data = input.read()) != -1) {  // while dengan parameter data = input.read tidak sama dengan -1
+                isi = isi + (char) data;
+                if ((char) data != '\n') {  //deklarasi if dengan parameter data tidak sama dengan tab
+                    Sel sel = new Sel(baris, kolom, (char) data);
                     this.tambahSel(sel);
                     kolom++; //kolom = kolom + 1
                 }
@@ -62,11 +62,13 @@ public class Tempat {
             Logger.getLogger(Tempat.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     /**
      * Fungsi penambah daftar sel.
-     * @param sel 
+     *
+     * @param sel
      */
-    public void tambahSel(Sel sel){
+    public void tambahSel(Sel sel) {
         daftarSel.add(sel);
     }
 
@@ -125,7 +127,13 @@ public class Tempat {
     public void setIsi(String isi) {
         this.isi = isi;
     }
-    public int geserKiri(){
+
+    public int geserKiri() {
         return 0;
     }
+
+    public int geserKanan() {
+        return 0;
+    }
+
 }
