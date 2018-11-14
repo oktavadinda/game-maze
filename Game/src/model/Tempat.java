@@ -74,6 +74,15 @@ public class Tempat {
     }
 
     /**
+     * Fungsi hapus sel. Sel yang paling akhir diremove dari daftar sel.
+     */
+    public void hapusSel() {
+        if (!daftarSel.isEmpty()) {
+            daftarSel.remove(daftarSel.size() - 1);
+        }
+    }
+
+    /**
      * @return the tinggi
      */
     public int getTinggi() {
@@ -85,7 +94,6 @@ public class Tempat {
 //        if (in.length > 2) {
 //            JOptionPane.showMessageDialog(null, "Jumlah");
 //        }
-        
 //    }
     /**
      * @param tinggi the tinggi to set
@@ -136,18 +144,4 @@ public class Tempat {
         this.isi = isi;
     }
 
-//    public int geserKiri() {
-//        return 0;
-//    }
-//
-//    public int geserKanan() {
-//        return 0;
-//    }
-//
-//    public int geserAtas() {
-//        return 0;
-//    }
-//    public int geserBawah(){
-//        return 0;
-//    }
 }
