@@ -122,7 +122,7 @@ public class GameFrame extends JFrame {
                 pindahAtas();
             }
         });
-        
+
         this.SerongKananAtasButton = new JButton("Serong Kanan Atas");
         southPanel.add(SerongKananAtasButton);
 
@@ -132,8 +132,8 @@ public class GameFrame extends JFrame {
                 pindahSerongKananAtas();
             }
         });
-        
-         this.SerongKiriAtasButton = new JButton("Serong Kiri Atas");
+
+        this.SerongKiriAtasButton = new JButton("Serong Kiri Atas");
         southPanel.add(SerongKiriAtasButton);
 
         SerongKiriAtasButton.addActionListener(new ActionListener() {
@@ -142,7 +142,7 @@ public class GameFrame extends JFrame {
                 pindahSerongKiriAtas();
             }
         });
-        
+
         this.SerongKiriBawahButton = new JButton("Serong Kiri Bawah");
         southPanel.add(SerongKiriBawahButton);
 
@@ -152,7 +152,7 @@ public class GameFrame extends JFrame {
                 pindahSerongKiriBawah();
             }
         });
-        
+
         this.SerongKananBawahButton = new JButton("Serong Kanan Bawah");
         southPanel.add(SerongKananBawahButton);
 
@@ -162,7 +162,7 @@ public class GameFrame extends JFrame {
                 pindahSerongKananBawah();
             }
         });
-        
+
         this.pindahBawahButton = new JButton("Bawah");
         southPanel.add(pindahBawahButton);
 
@@ -243,8 +243,8 @@ public class GameFrame extends JFrame {
         // gambar ulang tempat Panel
         getTempatPanel().repaint();
     }
-    
-     /**
+
+    /**
      * Fungsi untuk memindahkan sel dan menggambar ulang
      */
     public void pindahAtas() {
@@ -257,8 +257,8 @@ public class GameFrame extends JFrame {
         // gambar ulang tempat Panel
         getTempatPanel().repaint();
     }
-    
-     /**
+
+    /**
      * Fungsi untuk memindahkan sel dan menggambar ulang
      */
     public void pindahBawah() {
@@ -271,7 +271,7 @@ public class GameFrame extends JFrame {
         // gambar ulang tempat Panel
         getTempatPanel().repaint();
     }
-    
+
     public void pindahSerongKananAtas() {
         // posisiX seluruh sel ditambah 20
         // sehingga sel akan terlihat bergerak ke bawah
@@ -293,7 +293,7 @@ public class GameFrame extends JFrame {
         // gambar ulang tempat Panel
         getTempatPanel().repaint();
     }
-    
+
     public void pindahSerongKiriBawah() {
         // posisiX seluruh sel ditambah 20
         // sehingga sel akan terlihat bergerak ke bawah

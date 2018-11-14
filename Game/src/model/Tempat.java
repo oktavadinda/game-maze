@@ -79,6 +79,7 @@ public class Tempat {
     public void hapusSel() {
         if (!daftarSel.isEmpty()) {
             daftarSel.remove(daftarSel.size() - 1);
+            //daftarSel.remove(0);
         }
     }
 

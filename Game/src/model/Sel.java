@@ -159,9 +159,9 @@ public class Sel {
             kolom++;
         }
     }
-    
-     public void serongKiriBawah(){
-        if (isBatasBawah() == false && isBatasKiri()== false) {
+
+    public void serongKiriBawah() {
+        if (isBatasBawah() == false && isBatasKiri() == false) {
             baris++;
             kolom--;
         } else {
@@ -170,8 +170,8 @@ public class Sel {
         }
     }
 
-     public void serongKananBawah(){
-        if (isBatasBawah() == false && isBatasKanan()== false) {
+    public void serongKananBawah() {
+        if (isBatasBawah() == false && isBatasKanan() == false) {
             baris++;
             kolom++;
         } else {
