@@ -36,6 +36,10 @@ public class GameFrame extends JFrame {
     private JButton pindahKiriButton;
     private JButton pindahAtasButton;
     private JButton pindahBawahButton;
+    private JButton SerongKananAtasButton;
+    private JButton SerongKiriAtasButton;
+    private JButton SerongKiriBawahButton;
+    private JButton SerongKananBawahButton;
     private JButton tambahButton;
     private JButton hapusButton;
 
@@ -116,6 +120,46 @@ public class GameFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pindahAtas();
+            }
+        });
+        
+        this.SerongKananAtasButton = new JButton("Serong Kanan Atas");
+        southPanel.add(SerongKananAtasButton);
+
+        SerongKananAtasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pindahSerongKananAtas();
+            }
+        });
+        
+         this.SerongKiriAtasButton = new JButton("Serong Kiri Atas");
+        southPanel.add(SerongKiriAtasButton);
+
+        SerongKiriAtasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pindahSerongKiriAtas();
+            }
+        });
+        
+        this.SerongKiriBawahButton = new JButton("Serong Kiri Bawah");
+        southPanel.add(SerongKiriBawahButton);
+
+        SerongKiriBawahButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pindahSerongKiriBawah();
+            }
+        });
+        
+        this.SerongKananBawahButton = new JButton("Serong Kanan Bawah");
+        southPanel.add(SerongKananBawahButton);
+
+        SerongKananBawahButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pindahSerongKananBawah();
             }
         });
         
@@ -223,6 +267,50 @@ public class GameFrame extends JFrame {
         for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
             // set posisiX yang baru
             getTempatPanel().getTempat().getDaftarSel().get(i).geserBawah();
+        }
+        // gambar ulang tempat Panel
+        getTempatPanel().repaint();
+    }
+    
+    public void pindahSerongKananAtas() {
+        // posisiX seluruh sel ditambah 20
+        // sehingga sel akan terlihat bergerak ke bawah
+        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
+            // set posisiX yang baru
+            getTempatPanel().getTempat().getDaftarSel().get(i).serongKananAtas();
+        }
+        // gambar ulang tempat Panel
+        getTempatPanel().repaint();
+    }
+
+    public void pindahSerongKiriAtas() {
+        // posisiX seluruh sel ditambah 20
+        // sehingga sel akan terlihat bergerak ke bawah
+        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
+            // set posisiX yang baru
+            getTempatPanel().getTempat().getDaftarSel().get(i).serongKiriAtas();
+        }
+        // gambar ulang tempat Panel
+        getTempatPanel().repaint();
+    }
+    
+    public void pindahSerongKiriBawah() {
+        // posisiX seluruh sel ditambah 20
+        // sehingga sel akan terlihat bergerak ke bawah
+        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
+            // set posisiX yang baru
+            getTempatPanel().getTempat().getDaftarSel().get(i).serongKiriBawah();
+        }
+        // gambar ulang tempat Panel
+        getTempatPanel().repaint();
+    }
+
+    public void pindahSerongKananBawah() {
+        // posisiX seluruh sel ditambah 20
+        // sehingga sel akan terlihat bergerak ke bawah
+        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
+            // set posisiX yang baru
+            getTempatPanel().getTempat().getDaftarSel().get(i).serongKananBawah();
         }
         // gambar ulang tempat Panel
         getTempatPanel().repaint();

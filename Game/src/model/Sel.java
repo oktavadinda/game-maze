@@ -80,6 +80,8 @@ public class Sel {
     public void geserKanan() {
         if (isBatasKanan() == false) {
             kolom++;
+        } else {
+            kolom--;
         }
     }
 
@@ -89,6 +91,8 @@ public class Sel {
     public void geserKiri() {
         if (isBatasKiri() == false) {
             kolom--;
+        } else {
+            kolom++;
         }
     }
 
@@ -96,22 +100,32 @@ public class Sel {
      * Fungsi untuk mengecek sel ada di batas atas
      */
     public boolean isBatasAtas() {
+        if (baris * tinggi <= 0) {
+            return true;
+        } else {
             return false;
+        }
     }
 
     /**
      * Fungsi untuk mengecek sel ada di batas bawah
      */
     public boolean isBatasBawah() {
-        return false;
+        if (baris * tinggi + tinggi < Tempat.batasBawah) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**
      * Fungsi untuk geser atas
      */
     public void geserAtas() {
-        if (isBatasAtas() ==  false) {
+        if (isBatasAtas() == false) {
             baris--;
+        } else {
+            baris++;
         }
     }
 
@@ -121,6 +135,48 @@ public class Sel {
     public void geserBawah() {
         if (isBatasBawah() == false) {
             baris++;
+        } else {
+            baris--;
+        }
+    }
+
+    public void serongKananAtas() {
+        if (isBatasAtas() == false && isBatasKanan() == false) {
+            baris--;
+            kolom++;
+        } else {
+            baris++;
+            kolom--;
+        }
+    }
+
+    public void serongKiriAtas() {
+        if (isBatasAtas() == false && isBatasKiri() == false) {
+            baris--;
+            kolom--;
+        } else {
+            baris++;
+            kolom++;
+        }
+    }
+    
+     public void serongKiriBawah(){
+        if (isBatasBawah() == false && isBatasKiri()== false) {
+            baris++;
+            kolom--;
+        } else {
+            baris--;
+            kolom++;
+        }
+    }
+
+     public void serongKananBawah(){
+        if (isBatasBawah() == false && isBatasKanan()== false) {
+            baris++;
+            kolom++;
+        } else {
+            baris--;
+            kolom--;
         }
     }
 
