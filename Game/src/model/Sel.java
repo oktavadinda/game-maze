@@ -25,22 +25,22 @@ public class Sel {
     public Sel() {
     }
 
-    public Sel(int posisiX, int posisiY, char nilai) {
-        this.baris = posisiX;
-        this.kolom = posisiY;
+    public Sel(int baris, int kolom, char nilai) {
+        this.baris = baris;
+        this.kolom = kolom;
         this.nilai = nilai;
     }
 
-    public Sel(int posisiX, int posisiY, char nilai, Color warna) {
-        this.baris = posisiX;
-        this.kolom = posisiY;
+    public Sel(int baris, int kolom, char nilai, Color warna) {
+        this.baris = baris;
+        this.kolom = kolom;
         this.nilai = nilai;
         this.warna = warna;
     }
 
-    public Sel(int posisiX, int posisiY, int lebar, int tinggi, char nilai, Color warna) {
-        this.baris = posisiX;
-        this.kolom = posisiY;
+    public Sel(int baris, int kolom, int lebar, int tinggi, char nilai, Color warna) {
+        this.baris = baris;
+        this.kolom = kolom;
         this.lebar = lebar;
         this.tinggi = tinggi;
         this.nilai = nilai;
@@ -96,7 +96,7 @@ public class Sel {
      * Fungsi untuk mengecek sel ada di batas atas
      */
     public boolean isBatasAtas() {
-        return false;
+            return false;
     }
 
     /**
@@ -110,14 +110,18 @@ public class Sel {
      * Fungsi untuk geser atas
      */
     public void geserAtas() {
-
+        if (isBatasAtas() ==  false) {
+            baris--;
+        }
     }
 
     /**
      * Fungsi untuk geser bawah
      */
     public void geserBawah() {
-
+        if (isBatasBawah() == false) {
+            baris++;
+        }
     }
 
     public int getBaris() {

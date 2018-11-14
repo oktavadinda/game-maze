@@ -6,6 +6,7 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -26,11 +27,17 @@ import model.Sel;
  * @author user only
  */
 public class GameFrame extends JFrame {
+
     private TempatPanel tempatPanel;
 
     private JLabel perintahlabel;
     private JTextField perintahText;
-    private JButton okButton;
+    private JButton pindahKananButton;
+    private JButton pindahKiriButton;
+    private JButton pindahAtasButton;
+    private JButton pindahBawahButton;
+    private JButton tambahButton;
+    private JButton hapusButton;
 
     private JMenuBar menuBar;
     private JMenu gameMenu;
@@ -50,7 +57,7 @@ public class GameFrame extends JFrame {
 
     public void init() {
         // set ukuran dan layout
-        this.setSize(500, 300);
+        this.setSize(800, 500);
         this.setLayout(new BorderLayout());
 
         // set menu Bar
@@ -82,16 +89,64 @@ public class GameFrame extends JFrame {
         this.perintahText = new JTextField(20);
         southPanel.add(perintahText);
 
-        this.okButton = new JButton("OK");
-        southPanel.add(okButton);
+        this.pindahKananButton = new JButton("Kanan");
+        southPanel.add(pindahKananButton);
 
-        okButton.addActionListener(new ActionListener() {
+        pindahKananButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pindahKanan();
             }
         });
 
+        this.pindahKiriButton = new JButton("Kiri");
+        southPanel.add(pindahKiriButton);
+
+        pindahKiriButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pindahKiri();
+            }
+        });
+
+        this.pindahAtasButton = new JButton("Atas");
+        southPanel.add(pindahAtasButton);
+
+        pindahAtasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pindahAtas();
+            }
+        });
+        
+        this.pindahBawahButton = new JButton("Bawah");
+        southPanel.add(pindahBawahButton);
+
+        pindahBawahButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pindahBawah();
+            }
+        });
+
+        this.tambahButton = new JButton("tambahBola");
+        southPanel.add(tambahButton);
+        tambahButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tambahBola();
+            }
+        });
+
+        this.hapusButton = new JButton("hapusBola");
+        southPanel.add(hapusButton);
+
+        hapusButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                hapusBola();
+            }
+        });
         // set contentPane
         Container cp = this.getContentPane();
         if (tempatPanel != null) {
@@ -104,6 +159,20 @@ public class GameFrame extends JFrame {
     }
 
     /**
+     * Fungsi untuk tambahBola
+     */
+    public void tambahBola() {
+        tempatPanel.getTempat().tambahSel(new Sel(0, 0, 25, 25, '#', Color.BLUE));
+    }
+
+    /**
+     * Fungsi hapus bola
+     */
+    public void hapusBola() {
+        tempatPanel.getTempat().hapusSel();
+    }
+
+    /**
      * Fungsi untuk memindahkan sel dan menggambar ulang
      */
     public void pindahKanan() {
@@ -112,6 +181,48 @@ public class GameFrame extends JFrame {
         for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
             // set posisiX yang baru
             getTempatPanel().getTempat().getDaftarSel().get(i).geserKanan();
+        }
+        // gambar ulang tempat Panel
+        getTempatPanel().repaint();
+    }
+
+    /**
+     * Fungsi untuk memindahkan sel dan menggambar ulang
+     */
+    public void pindahKiri() {
+        // posisiX seluruh sel ditambah 20
+        // sehingga sel akan terlihat bergerak ke kiri
+        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
+            // set posisiX yang baru
+            getTempatPanel().getTempat().getDaftarSel().get(i).geserKiri();
+        }
+        // gambar ulang tempat Panel
+        getTempatPanel().repaint();
+    }
+    
+     /**
+     * Fungsi untuk memindahkan sel dan menggambar ulang
+     */
+    public void pindahAtas() {
+        // posisiX seluruh sel ditambah 20
+        // sehingga sel akan terlihat bergerak ke atas
+        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
+            // set posisiX yang baru
+            getTempatPanel().getTempat().getDaftarSel().get(i).geserAtas();
+        }
+        // gambar ulang tempat Panel
+        getTempatPanel().repaint();
+    }
+    
+     /**
+     * Fungsi untuk memindahkan sel dan menggambar ulang
+     */
+    public void pindahBawah() {
+        // posisiX seluruh sel ditambah 20
+        // sehingga sel akan terlihat bergerak ke bawah
+        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
+            // set posisiX yang baru
+            getTempatPanel().getTempat().getDaftarSel().get(i).geserBawah();
         }
         // gambar ulang tempat Panel
         getTempatPanel().repaint();
