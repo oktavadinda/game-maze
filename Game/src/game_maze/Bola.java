@@ -7,8 +7,12 @@ package game_maze;
 
 /**
  *
- * @author asus
+ * @author okta vadinda
  */
-class Bola {
-    
+public class Bola extends Pixel {
+
+    public Bola(int x, int y) {
+        super(x, y);//mengakses constructor superclass (pixel) oleh subclass (bola) dan langsung di set nilai xy bola.
+    }
+
 }
