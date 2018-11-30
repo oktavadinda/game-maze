@@ -58,7 +58,10 @@ public class Peta extends JPanel {
                     } else if (item == '@') {
                         maze = new Pemain(posisiX, posisiY);
                         posisiX += jarak;
+                    } else if (item == '.') {
+                        posisiX += jarak;
                     }
+                    tinggi = posisiY;
                 }
             }
         } catch (IOException ex) {
