@@ -23,5 +23,11 @@ public class Bola extends Pixel {
         this.setImage(image);
         
     }
-    
+
+    public void Gerak(int x, int y) {
+        int nx = this.getPosisiX() + x;
+        int ny = this.getPosisiY() + y;
+        this.setPosisiX(nx);
+        this.setPosisiY(ny);
+    }
 }
