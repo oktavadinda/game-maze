@@ -5,10 +5,21 @@
  */
 package game_maze;
 
+import java.awt.Image;
+import java.net.URL;
+import javax.swing.ImageIcon;
+
 /**
  *
- * @author asus
+ * @author okta vadinda
  */
-class Gawang {
-    
+public class Gawang extends Pixel {
+
+    public Gawang(int x, int y) {
+        super(x, y); //mengakses constructor superclass(pixel) oleh subclass(gawang) dan langsung di set nilai xy gawang
+        URL loc = this.getClass().getResource("gawang.jpg");
+        ImageIcon g = new ImageIcon(loc);
+        Image image = g.getImage();
+        this.setImage(image);
+    }
 }
