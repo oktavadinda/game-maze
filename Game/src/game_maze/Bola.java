@@ -14,19 +14,19 @@ import javax.swing.ImageIcon;
  * @author okta vadinda
  */
 public class Bola extends Pixel {
-    
+
     public Bola(int x, int y) {
         super(x, y);//mengakses constructor superclass (pixel) oleh subclass (bola) dan langsung di set nilai xy bola.
         URL loc = this.getClass().getResource("bola.jpg");
         ImageIcon i = new ImageIcon(loc);
         Image image = i.getImage();
         this.setImage(image);
-        
+
     }
 
     public void Gerak(int x, int y) {
-        int nx = this.getPosisiX() + x;
-        int ny = this.getPosisiY() + y;
+        int nx = this.getPosisiX() + x;//bergerak kiri atau kanan, tergantung nilai x jika negative maka ke kiri, positive maka ke kanan
+        int ny = this.getPosisiY() + y;//bergerak kiri atau kanan, tergantung nilai y jika negative maka ke atas, positive maka ke bawah
         this.setPosisiX(nx);
         this.setPosisiY(ny);
     }

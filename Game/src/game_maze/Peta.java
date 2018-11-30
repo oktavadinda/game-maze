@@ -1,10 +1,12 @@
 package game_maze;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
-
-
 
 public class Peta extends JPanel {
 
@@ -12,7 +14,7 @@ public class Peta extends JPanel {
     private ArrayList bola = new ArrayList(); // menyimpan data bola
     private ArrayList gawang = new ArrayList(); // menyimpan data gawang
     public static ArrayList map = new ArrayList(); //menyimpan data tembok, gawang, bola, soko
-    private Pemain soko;
+    private Pemain maze;
     private int lebar = 0;
     private int tinggi = 0;
     private int jarak = 20; //untuk menentukan besarnya pixel/jarak space gambar didalam panel.
@@ -45,6 +47,8 @@ public class Peta extends JPanel {
                     }
                 }
             }
+        } catch (IOException ex) {
+            Logger.getLogger(Peta.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
