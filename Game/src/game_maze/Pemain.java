@@ -7,7 +7,7 @@ package game_maze;
 
 /**
  *
- * @author asus
+ * @author okta vadinda
  */
 import java.awt.Image;
 import java.net.URL;

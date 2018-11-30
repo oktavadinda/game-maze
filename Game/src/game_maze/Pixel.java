@@ -9,7 +9,7 @@ import java.awt.Image;
 
 /**
  *
- * @author asus
+ * @author okta vadinda
  */
 class Pixel {
 
