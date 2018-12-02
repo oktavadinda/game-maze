@@ -209,4 +209,12 @@ public class Peta extends JPanel {
         return bantu;//default return false
     }
 
+    private void UndoPerintah() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private boolean cekBolaPemainTembok(String u) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
