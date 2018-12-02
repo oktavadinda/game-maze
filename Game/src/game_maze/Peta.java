@@ -187,5 +187,26 @@ public class Peta extends JPanel {
                     break;
                 }
             }
+        } else if (input.equalsIgnoreCase("u")) {
+            for (int i = 0; i < tembok.size(); i++) {
+                Tembok wall = (Tembok) tembok.get(i);//ambil posisi tembok
+                if (pemain.PosisiAtasObjek(wall)) {
+                    bantu = true;
+                    break;
+                }
+            }
+        } else if (input.equalsIgnoreCase("d")) {
+            for (int i = 0; i < tembok.size(); i++) {
+                Tembok wall = (Tembok) tembok.get(i);//ambil posisi tembok
+                if (pemain.PosisiBawahObjek(wall)) {
+                    bantu = true;
+                    break;
+                }
+            }
+        } else if (input.equalsIgnoreCase("z")) {
+            UndoPerintah();
         }
+        return bantu;//default return false
     }
+
+}
