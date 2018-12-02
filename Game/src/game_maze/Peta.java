@@ -1,5 +1,7 @@
 package game_maze;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -8,6 +10,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 
+/**
+ *
+ * @author okta vadinda
+ */
 public class Peta extends JPanel {
 
     private ArrayList tembok = new ArrayList(); //menyimpan data tembok
@@ -67,5 +73,31 @@ public class Peta extends JPanel {
         } catch (IOException ex) {
             Logger.getLogger(Peta.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g); //Hapus background
+        //Tempat gambar :
+        g.setColor(new Color(255, 255, 255)); //set panel warna putih
+        g.fillRect(0, 0, this.getLebar(), this.getTinggi()); //set tinggi lebar sesuai konfigurasi
+        map.addAll(tembok);
+        map.addAll(gawang);
+        map.addAll(bola);
+        map.add(maze);
+        for (int i = 0; i < map.size(); i++) {
+            if (map.get(i) != null) {
+                Pixel item = (Pixel) map.get(i); //map dterjemahkan dalam kelas pixel.
+                g.drawImage(item.getImage(), item.getPosisiX(), item.getPosisiY(), this); //proses gambar di panel.
+            }
+        }
+    }
+
+    public int getLebar() {
+        return this.lebar;
+    }
+
+    public int getTinggi() {
+        return this.tinggi;
     }
 }
