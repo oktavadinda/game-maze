@@ -167,4 +167,17 @@ public class Peta extends JPanel {
             JOptionPane.showMessageDialog(null, "Jumlah kata hanya satu");
         }
     }
+    
+    private boolean cekObjekNabrakTembok(Pixel pemain, String input) {
+        boolean bantu = false;
+        if (input.equalsIgnoreCase("l")) {
+            for (int i = 0; i < tembok.size(); i++) {
+                Tembok wall = (Tembok) tembok.get(i);//ambil posisi tembok
+                if (pemain.PosisiKiriObjek(wall)) {
+                    bantu = true;
+                    break;
+                }
+            }
+
+        }
 }
