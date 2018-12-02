@@ -101,9 +101,70 @@ public class Peta extends JPanel {
     public int getTinggi() {
         return this.tinggi;
     }
+
     public void PerintahGerak(String input) {
         String in[] = input.split(" ");
         if (in.length > 2) {
             JOptionPane.showMessageDialog(null, "Jumlah kata lebih dari 2");
-        } 
+        } else if (in.length == 2) {
+            if (in[0].matches("[udrlz]")) {
+                Allperintah.add(input);
+                if (in[0].equalsIgnoreCase("u")) {
+                    for (int i = 0; i < Integer.parseInt(String.valueOf(in[1])); i++) {
+                        if (cekObjekNabrakTembok(maze, "u")) {
+                            return;
+                        } else if (cekBolaPemainTembok("u")) {
+                            return;
+                        } else {
+                            maze.Gerak(0, -jarak);
+                            repaint();
+                        }
+                    }
+                } else if (in[0].equalsIgnoreCase("d")) {
+                    for (int i = 0; i < Integer.parseInt(String.valueOf(in[1])); i++) {
+                        if (cekObjekNabrakTembok(maze, "d")) {
+                            return;
+                        } else if (cekBolaPemainTembok("d")) {
+                            return;
+                        } else {
+                            maze.Gerak(0, jarak);
+                            repaint();
+                        }
+                    }
+                } else if (in[0].equalsIgnoreCase("r")) {
+                    for (int i = 0; i < Integer.parseInt(String.valueOf(in[1])); i++) {
+                        if (cekObjekNabrakTembok(maze, "r")) {
+                            return;
+                        } else if (cekBolaPemainTembok("r")) {
+                            return;
+                        } else {
+                            maze.Gerak(jarak, 0);
+                            repaint();
+                        }
+                    }
+                } else if (in[0].equalsIgnoreCase("l")) {
+                    for (int i = 0; i < Integer.parseInt(String.valueOf(in[1])); i++) {
+                        if (cekObjekNabrakTembok(maze, "l")) {
+                            return;
+                        } else if (cekBolaPemainTembok("l")) {
+                            return;
+                        } else {
+                            maze.Gerak(-jarak, 0);
+                            repaint();
+                        }
+                    }
+                } else if (in[0].equalsIgnoreCase("z")) {
+                    for (int i = 0; i < Integer.parseInt(String.valueOf(in[1])); i++) {
+                        UndoPerintah();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Kata Tidak Dikenal");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Kata Tidak Dikenal");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Jumlah kata hanya satu");
+        }
+    }
 }
