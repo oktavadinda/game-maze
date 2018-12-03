@@ -237,6 +237,26 @@ public class Peta extends JPanel {
                     repaint();
                 }
                 break;
+            } else if (in[0].equalsIgnoreCase("r")) {
+                if (cekObjekNabrakTembok(maze, "l")) {
+                    return;
+                } else if (cekUndoBola("l")) {
+                    return;
+                } else {
+                    maze.Gerak(-jarak, 0);
+                    repaint();
+                }
+                break;
+            } else if (in[0].equalsIgnoreCase("l")) {
+                if (cekObjekNabrakTembok(maze, "r")) {
+                    return;
+                } else if (cekUndoBola("r")) {
+                    return;
+                } else {
+                    maze.Gerak(jarak, 0);
+                    repaint();
+                }
+                break;
             }
         }
     }
