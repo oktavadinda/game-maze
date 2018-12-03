@@ -209,8 +209,26 @@ public class Peta extends JPanel {
         return bantu;//default return false
     }
 
-    private void UndoPerintah() {
+    private boolean cekUndoBola(String d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void UndoPerintah() {
+        for (int i = Allperintah.size() - 1; i >= 0; i--) {
+            String input = Allperintah.get(i).toString();
+            String in[] = input.split(" ");
+            if (in[0].equalsIgnoreCase("u")) {
+                if (cekObjekNabrakTembok(maze, "d")) {
+                    return;
+                } else if (cekUndoBola("d")) {
+                    return;
+                } else {
+                    maze.Gerak(0, jarak);
+                    repaint();
+                }
+                break;
+            }
+        }
     }
 
     private boolean cekBolaPemainTembok(String u) {
