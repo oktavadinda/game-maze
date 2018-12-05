@@ -262,6 +262,33 @@ public class Peta extends JPanel {
     }
 
     private boolean cekBolaPemainTembok(String u) {
+        boolean bantu = false;
+        if (u.equalsIgnoreCase("l")) {
+            for (int i = 0; i < bola.size(); i++) {
+                Bola bol1 = (Bola) bola.get(i);//ambil posisi bola
+                if (maze.PosisiKiriObjek(bol1)) {
+                    if (cekBolaNabrakBola(bol1, "l")) {//cek apakah bola ke satu nabrak tembok.
+                        bantu = true;//ya, tidak boleh bergerak.
+                        break;//hentikan proses looping i
+                    } else if (cekObjekNabrakTembok(bol1, "l")) {//cek apakah bola ke satu nabrak tembok.
+                        bantu = true;//ya, tidak boleh bergerak.
+                        break;//hentikan proses looping i
+                    } else {
+                        bol1.Gerak(-jarak, 0);//bola ikut bergerak ke kiri
+                        isCompleted();
+                    }
+
+                }
+            }
+
+        }
+    }
+
+    private boolean cekBolaNabrakBola(Bola bol1, String l) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void isCompleted() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
