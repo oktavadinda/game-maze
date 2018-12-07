@@ -281,7 +281,7 @@ public class Peta extends JPanel {
                 }
             }
 
-        }else if (u.equalsIgnoreCase("r")) {
+        } else if (u.equalsIgnoreCase("r")) {
             for (int i = 0; i < bola.size(); i++) {
                 Bola bol1 = (Bola) bola.get(i);//ambil posisi bola
                 if (maze.PosisiKananObjek(bol1)) {//cek apakah pemain sebelah kanan bola ke i
@@ -313,8 +313,27 @@ public class Peta extends JPanel {
                     }
                 }
             }
-        } 
-    
+        } else if (u.equalsIgnoreCase("d")) {
+            for (int i = 0; i < bola.size(); i++) {
+                Bola bol1 = (Bola) bola.get(i);//ambil posisi bola
+                if (maze.PosisiBawahObjek(bol1)) {//cek apakah bola 1 di bawah pemain
+                    if (cekBolaNabrakBola(bol1, "d")) {//cek apakah bola ke satu nabrak tembok.
+                        bantu = true;//ya, tidak boleh bergerak.
+                        break;//hentikan proses looping i
+                    } else if (cekObjekNabrakTembok(bol1, "d")) {//cek apakah bola ke satu nabrak tembok.
+                        bantu = true;//ya, tidak boleh bergerak.
+                        break;//hentikan proses looping i
+                    } else {
+                        bol1.Gerak(0, jarak);//bola ikut bergerak ke bawah
+                        isCompleted();
+                    }
+                }
+            }
+        } else if (u.equalsIgnoreCase("z")) {
+            UndoPerintah();
+        }
+        return bantu;
+
     }
 
     private boolean cekBolaNabrakBola(Bola bol1, String l) {
