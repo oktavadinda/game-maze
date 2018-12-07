@@ -297,7 +297,23 @@ public class Peta extends JPanel {
                     }
                 }
             }
-        }
+        } else if (u.equalsIgnoreCase("u")) {
+            for (int i = 0; i < bola.size(); i++) {
+                Bola bol1 = (Bola) bola.get(i);//ambil posisi bola
+                if (maze.PosisiAtasObjek(bol1)) {//cek apakah bola 1 di atas pemain
+                    if (cekBolaNabrakBola(bol1, "u")) {//cek apakah bola ke satu nabrak tembok.
+                        bantu = true;//ya, tidak boleh bergerak.
+                        break;//hentikan proses looping i
+                    } else if (cekObjekNabrakTembok(bol1, "u")) {//cek apakah bola ke satu nabrak tembok.
+                        bantu = true;//ya, tidak boleh bergerak.
+                        break;//hentikan proses looping i
+                    } else {
+                        bol1.Gerak(0, -jarak);//bola ikut bergerak ke atas
+                        isCompleted();
+                    }
+                }
+            }
+        } 
     
     }
 
