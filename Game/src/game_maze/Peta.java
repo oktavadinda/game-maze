@@ -210,8 +210,49 @@ public class Peta extends JPanel {
     }
 
     private boolean cekUndoBola(String d) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        if (d == "u") {
+            for (int i = 0; i < bola.size(); i++) {
+                Bola bol = (Bola) bola.get(i);
+                if (maze.PosisiBawahObjek(bol)) {
+                    for (int j = 0; j < bola.size(); j++) {
+                        Bola item = (Bola) bola.get(j);
+                        if (!bol.equals(item)) {
+                            if (bol.PosisiBawahObjek(item)) {
+                                return true;
+                            }
+                        }
+                        if (cekObjekNabrakTembok(bol, "u")) {
+                            return true;
+                        }
+                    }
+                    bol.Gerak(0, -jarak);
+                    isCompleted();
+                }
+            }
+            return false;
+        } else if (d == "d") {
+            for (int i = 0; i < bola.size(); i++) {
+                Bola bol = (Bola) bola.get(i);
+                if (maze.PosisiAtasObjek(bol)) {
+                    for (int j = 0; j < bola.size(); j++) {
+                        Bola item = (Bola) bola.get(j);
+                        if (!bol.equals(item)) {
+                            if (bol.PosisiAtasObjek(item)) {
+                                return true;
+                            }
+                        }
+                        if (cekObjekNabrakTembok(bol, "d")) {
+                            return true;
+                        }
+                    }
+                    bol.Gerak(0, jarak);
+                    isCompleted();
+                }
+            }
+            return false;
+        }
+    
+    
 
     private void UndoPerintah() {
         for (int i = Allperintah.size() - 1; i >= 0; i--) {
