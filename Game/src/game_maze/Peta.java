@@ -416,8 +416,46 @@ public class Peta extends JPanel {
 
     }
 
-    private boolean cekBolaNabrakBola(Bola bol1, String l) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private boolean cekBolaNabrakBola(Pixel objek, String input) {
+        boolean bantu = false;
+        if (input.equalsIgnoreCase("l")) {
+            for (int i = 0; i < bola.size(); i++) {
+                Bola bol = (Bola) bola.get(i);//ambil posisi bola
+                if (objek.PosisiKiriObjek(bol)) {
+                    bantu = true;
+                    break;
+                }
+            }
+        } else if (input.equalsIgnoreCase("r")) {
+            for (int i = 0; i < bola.size(); i++) {
+                Bola bol = (Bola) bola.get(i);//ambil posisi bola
+                if (objek.PosisiKananObjek(bol)) {
+                    bantu = true;
+                    break;
+                }
+            }
+
+        } else if (input.equalsIgnoreCase("u")) {
+            for (int i = 0; i < bola.size(); i++) {
+                Bola bol = (Bola) bola.get(i);//ambil posisi bola
+                if (objek.PosisiAtasObjek(bol)) {
+                    bantu = true;
+                    break;
+                }
+            }
+
+        } else if (input.equalsIgnoreCase("d")) {
+            for (int i = 0; i < bola.size(); i++) {
+                Bola bol = (Bola) bola.get(i);//ambil posisi bola
+                if (objek.PosisiBawahObjek(bol)) {
+                    bantu = true;
+                    break;
+                }
+            }
+        } else if (input.equalsIgnoreCase("z")) {
+            UndoPerintah();
+        }
+        return bantu;//default return false
     }
 
     public void isCompleted() {
