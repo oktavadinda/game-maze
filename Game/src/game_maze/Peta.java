@@ -459,7 +459,47 @@ public class Peta extends JPanel {
     }
 
     public void isCompleted() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int jumBola = bola.size();//jumlah bola
+        int goal = 0;
+        for (int i = 0; i < bola.size(); i++) {
+            Bola bol = (Bola) bola.get(i);//ambil posisi bola
+            for (int j = 0; j < gawang.size(); j++) {
+                Gawang gaw = (Gawang) gawang.get(j);//ambil posisi gawang
+                if (bol.getPosisiX() == gaw.getPosisiX() && bol.getPosisiY() == gaw.getPosisiY()) {
+                    //cek posisi bola sama dengan bola.
+                    goal += 1;
+                }
+            }
+        }
+        if (goal == jumBola) {//jika semua gawang sudah terisi bola
+            JOptionPane.showMessageDialog(null, "Selamat anda berhasil menyelesaikan game ini.");
+            int poin = Allperintah.size();
+            if (Allperintah.size() <= 20) {
+                poin = 100;
+                JOptionPane.showMessageDialog(null, "Total perintah yang anda masukkan : " + Allperintah.size());
+                JOptionPane.showMessageDialog(null, "Poin Akhir anda : " + poin);
+            } else if (Allperintah.size() > 20 || Allperintah.size() >= 40) {
+                poin = 80;
+                JOptionPane.showMessageDialog(null, "Total perintah yang anda masukkan : " + Allperintah.size());
+                JOptionPane.showMessageDialog(null, "Poin Akhir anda : " + poin);
+            } else if (Allperintah.size() > 40 || Allperintah.size() >= 60) {
+                poin = 60;
+                JOptionPane.showMessageDialog(null, "Total perintah yang anda masukkan : " + Allperintah.size());
+                JOptionPane.showMessageDialog(null, "Poin Akhir anda : " + poin);
+            } else if (Allperintah.size() > 60 || Allperintah.size() >= 80) {
+                poin = 50;
+                JOptionPane.showMessageDialog(null, "Total perintah yang anda masukkan : " + Allperintah.size());
+                JOptionPane.showMessageDialog(null, "Poin Akhir anda : " + poin);
+            } else if (Allperintah.size() > 80 || Allperintah.size() >= 100) {
+                poin = 50;
+                JOptionPane.showMessageDialog(null, "Total perintah yang anda masukkan : " + Allperintah.size());
+                JOptionPane.showMessageDialog(null, "Poin Akhir anda : " + poin);
+            } else {
+                poin = 40;
+                JOptionPane.showMessageDialog(null, "Total perintah yang anda masukkan : " + Allperintah.size());
+                JOptionPane.showMessageDialog(null, "Poin Akhir anda : " + poin);
+            }
+        }
     }
 
 }
