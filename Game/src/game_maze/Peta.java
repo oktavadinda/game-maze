@@ -250,9 +250,48 @@ public class Peta extends JPanel {
                 }
             }
             return false;
+        } else if (d == "l") {
+            for (int i = 0; i < bola.size(); i++) {
+                Bola bol = (Bola) bola.get(i);
+                if (maze.PosisiKananObjek(bol)) {
+                    for (int j = 0; j < bola.size(); j++) {
+                        Bola item = (Bola) bola.get(j);
+                        if (!bol.equals(item)) {
+                            if (bol.PosisiKananObjek(item)) {
+                                return true;
+                            }
+                        }
+                        if (cekObjekNabrakTembok(bol, "l")) {
+                            return true;
+                        }
+                    }
+                    bol.Gerak(-jarak, 0);
+                    isCompleted();
+                }
+            }
+            return false;
+        } else if (d == "r") {
+            for (int i = 0; i < bola.size(); i++) {
+                Bola bol = (Bola) bola.get(i);
+                if (maze.PosisiKiriObjek(bol)) {
+                    for (int j = 0; j < bola.size(); j++) {
+                        Bola item = (Bola) bola.get(j);
+                        if (!bol.equals(item)) {
+                            if (bol.PosisiKiriObjek(item)) {
+                                return true;
+                            }
+                        }
+                        if (cekObjekNabrakTembok(bol, "r")) {
+                            return true;
+                        }
+                    }
+                    bol.Gerak(jarak, 0);
+                    isCompleted();
+                }
+            }
         }
-    
-    
+        return false;
+    }
 
     private void UndoPerintah() {
         for (int i = Allperintah.size() - 1; i >= 0; i--) {
