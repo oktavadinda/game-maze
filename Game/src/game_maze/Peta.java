@@ -502,4 +502,21 @@ public class Peta extends JPanel {
         }
     }
 
+    public void restartLevel() {
+        Allperintah.clear();//hapus semua perintah yang tersimpan
+        gawang.clear();//hapus gawang
+        bola.clear();//hapus bola
+        tembok.clear();//hapus tembok
+        map.clear();//hapus map
+        setPeta(Alamatpeta);//set ulang gambar peta
+        repaint();//gambar ulang
+    }
+
+    public String getTeksPerintah() {
+        String bantu = "";
+        for (int i = 0; i < Allperintah.size(); i++) {
+            bantu = bantu + Allperintah.get(i) + " ";
+        }
+        return bantu;
+    }
 }
