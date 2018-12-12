@@ -17,7 +17,7 @@ public class orang extends Pixel {
 
     public orang(int x, int y) {
         super(x, y);//mengakses constructor superclass (pixel) oleh subclass (bola) dan langsung di set nilai xy bola.
-        URL loc = this.getClass().getResource("bola.jpg");
+        URL loc = this.getClass().getResource("orang.jpg");
         ImageIcon i = new ImageIcon(loc);
         Image image = i.getImage();
         this.setImage(image);
