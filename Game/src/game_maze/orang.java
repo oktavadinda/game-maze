@@ -13,9 +13,9 @@ import javax.swing.ImageIcon;
  *
  * @author okta vadinda
  */
-public class Bola extends Pixel {
+public class orang extends Pixel {
 
-    public Bola(int x, int y) {
+    public orang(int x, int y) {
         super(x, y);//mengakses constructor superclass (pixel) oleh subclass (bola) dan langsung di set nilai xy bola.
         URL loc = this.getClass().getResource("bola.jpg");
         ImageIcon i = new ImageIcon(loc);

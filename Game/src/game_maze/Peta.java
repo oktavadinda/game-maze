@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 public class Peta extends JPanel {
 
     private ArrayList tembok = new ArrayList(); //menyimpan data tembok
-    private ArrayList bola = new ArrayList(); // menyimpan data bola
+    private ArrayList orang = new ArrayList(); // menyimpan data bola
     private ArrayList gawang = new ArrayList(); // menyimpan data gawang
     public static ArrayList map = new ArrayList(); //menyimpan data tembok, gawang, bola, soko
     private Pemain maze;
@@ -41,7 +41,7 @@ public class Peta extends JPanel {
                 int posisiX = 0;
                 int posisiY = 0;
                 Tembok wall;
-                Bola b;
+                orang b;
                 Gawang a;
                 int data;
                 while ((data = input.read()) != -1) {
@@ -55,8 +55,8 @@ public class Peta extends JPanel {
                         tembok.add(wall);
                         posisiX += jarak;
                     } else if (item == 'x') {
-                        b = new Bola(posisiX, posisiY);
-                        bola.add(b);
+                        b = new orang(posisiX, posisiY);
+                        orang.add(b);
                         posisiX += jarak;
                     } else if (item == 'o') {
                         a = new Gawang(posisiX, posisiY);
@@ -84,7 +84,7 @@ public class Peta extends JPanel {
         g.fillRect(0, 0, this.getLebar(), this.getTinggi()); //set tinggi lebar sesuai konfigurasi
         map.addAll(tembok);
         map.addAll(gawang);
-        map.addAll(bola);
+        map.addAll(orang);
         map.add(maze);
         for (int i = 0; i < map.size(); i++) {
             if (map.get(i) != null) {
@@ -211,11 +211,11 @@ public class Peta extends JPanel {
 
     private boolean cekUndoBola(String d) {
         if (d == "u") {
-            for (int i = 0; i < bola.size(); i++) {
-                Bola bol = (Bola) bola.get(i);
+            for (int i = 0; i < orang.size(); i++) {
+                orang bol = (orang) orang.get(i);
                 if (maze.PosisiBawahObjek(bol)) {
-                    for (int j = 0; j < bola.size(); j++) {
-                        Bola item = (Bola) bola.get(j);
+                    for (int j = 0; j < orang.size(); j++) {
+                        orang item = (orang) orang.get(j);
                         if (!bol.equals(item)) {
                             if (bol.PosisiBawahObjek(item)) {
                                 return true;
@@ -231,11 +231,11 @@ public class Peta extends JPanel {
             }
             return false;
         } else if (d == "d") {
-            for (int i = 0; i < bola.size(); i++) {
-                Bola bol = (Bola) bola.get(i);
+            for (int i = 0; i < orang.size(); i++) {
+                orang bol = (orang) orang.get(i);
                 if (maze.PosisiAtasObjek(bol)) {
-                    for (int j = 0; j < bola.size(); j++) {
-                        Bola item = (Bola) bola.get(j);
+                    for (int j = 0; j < orang.size(); j++) {
+                        orang item = (orang) orang.get(j);
                         if (!bol.equals(item)) {
                             if (bol.PosisiAtasObjek(item)) {
                                 return true;
@@ -251,11 +251,11 @@ public class Peta extends JPanel {
             }
             return false;
         } else if (d == "l") {
-            for (int i = 0; i < bola.size(); i++) {
-                Bola bol = (Bola) bola.get(i);
+            for (int i = 0; i < orang.size(); i++) {
+                orang bol = (orang) orang.get(i);
                 if (maze.PosisiKananObjek(bol)) {
-                    for (int j = 0; j < bola.size(); j++) {
-                        Bola item = (Bola) bola.get(j);
+                    for (int j = 0; j < orang.size(); j++) {
+                        orang item = (orang) orang.get(j);
                         if (!bol.equals(item)) {
                             if (bol.PosisiKananObjek(item)) {
                                 return true;
@@ -271,11 +271,11 @@ public class Peta extends JPanel {
             }
             return false;
         } else if (d == "r") {
-            for (int i = 0; i < bola.size(); i++) {
-                Bola bol = (Bola) bola.get(i);
+            for (int i = 0; i < orang.size(); i++) {
+                orang bol = (orang) orang.get(i);
                 if (maze.PosisiKiriObjek(bol)) {
-                    for (int j = 0; j < bola.size(); j++) {
-                        Bola item = (Bola) bola.get(j);
+                    for (int j = 0; j < orang.size(); j++) {
+                        orang item = (orang) orang.get(j);
                         if (!bol.equals(item)) {
                             if (bol.PosisiKiriObjek(item)) {
                                 return true;
@@ -344,8 +344,8 @@ public class Peta extends JPanel {
     private boolean cekBolaPemainTembok(String u) {
         boolean bantu = false;
         if (u.equalsIgnoreCase("l")) {
-            for (int i = 0; i < bola.size(); i++) {
-                Bola bol1 = (Bola) bola.get(i);//ambil posisi bola
+            for (int i = 0; i < orang.size(); i++) {
+                orang bol1 = (orang) orang.get(i);//ambil posisi bola
                 if (maze.PosisiKiriObjek(bol1)) {
                     if (cekBolaNabrakBola(bol1, "l")) {//cek apakah bola ke satu nabrak tembok.
                         bantu = true;//ya, tidak boleh bergerak.
@@ -362,8 +362,8 @@ public class Peta extends JPanel {
             }
 
         } else if (u.equalsIgnoreCase("r")) {
-            for (int i = 0; i < bola.size(); i++) {
-                Bola bol1 = (Bola) bola.get(i);//ambil posisi bola
+            for (int i = 0; i < orang.size(); i++) {
+                orang bol1 = (orang) orang.get(i);//ambil posisi bola
                 if (maze.PosisiKananObjek(bol1)) {//cek apakah pemain sebelah kanan bola ke i
                     if (cekBolaNabrakBola(bol1, "r")) {//cek apakah bola ke satu nabrak tembok.
                         bantu = true;//ya, tidak boleh bergerak.
@@ -378,8 +378,8 @@ public class Peta extends JPanel {
                 }
             }
         } else if (u.equalsIgnoreCase("u")) {
-            for (int i = 0; i < bola.size(); i++) {
-                Bola bol1 = (Bola) bola.get(i);//ambil posisi bola
+            for (int i = 0; i < orang.size(); i++) {
+                orang bol1 = (orang) orang.get(i);//ambil posisi bola
                 if (maze.PosisiAtasObjek(bol1)) {//cek apakah bola 1 di atas pemain
                     if (cekBolaNabrakBola(bol1, "u")) {//cek apakah bola ke satu nabrak tembok.
                         bantu = true;//ya, tidak boleh bergerak.
@@ -394,8 +394,8 @@ public class Peta extends JPanel {
                 }
             }
         } else if (u.equalsIgnoreCase("d")) {
-            for (int i = 0; i < bola.size(); i++) {
-                Bola bol1 = (Bola) bola.get(i);//ambil posisi bola
+            for (int i = 0; i < orang.size(); i++) {
+                orang bol1 = (orang) orang.get(i);//ambil posisi bola
                 if (maze.PosisiBawahObjek(bol1)) {//cek apakah bola 1 di bawah pemain
                     if (cekBolaNabrakBola(bol1, "d")) {//cek apakah bola ke satu nabrak tembok.
                         bantu = true;//ya, tidak boleh bergerak.
@@ -419,16 +419,16 @@ public class Peta extends JPanel {
     private boolean cekBolaNabrakBola(Pixel objek, String input) {
         boolean bantu = false;
         if (input.equalsIgnoreCase("l")) {
-            for (int i = 0; i < bola.size(); i++) {
-                Bola bol = (Bola) bola.get(i);//ambil posisi bola
+            for (int i = 0; i < orang.size(); i++) {
+                orang bol = (orang) orang.get(i);//ambil posisi bola
                 if (objek.PosisiKiriObjek(bol)) {
                     bantu = true;
                     break;
                 }
             }
         } else if (input.equalsIgnoreCase("r")) {
-            for (int i = 0; i < bola.size(); i++) {
-                Bola bol = (Bola) bola.get(i);//ambil posisi bola
+            for (int i = 0; i < orang.size(); i++) {
+                orang bol = (orang) orang.get(i);//ambil posisi bola
                 if (objek.PosisiKananObjek(bol)) {
                     bantu = true;
                     break;
@@ -436,8 +436,8 @@ public class Peta extends JPanel {
             }
 
         } else if (input.equalsIgnoreCase("u")) {
-            for (int i = 0; i < bola.size(); i++) {
-                Bola bol = (Bola) bola.get(i);//ambil posisi bola
+            for (int i = 0; i < orang.size(); i++) {
+                orang bol = (orang) orang.get(i);//ambil posisi bola
                 if (objek.PosisiAtasObjek(bol)) {
                     bantu = true;
                     break;
@@ -445,8 +445,8 @@ public class Peta extends JPanel {
             }
 
         } else if (input.equalsIgnoreCase("d")) {
-            for (int i = 0; i < bola.size(); i++) {
-                Bola bol = (Bola) bola.get(i);//ambil posisi bola
+            for (int i = 0; i < orang.size(); i++) {
+                orang bol = (orang) orang.get(i);//ambil posisi bola
                 if (objek.PosisiBawahObjek(bol)) {
                     bantu = true;
                     break;
@@ -459,10 +459,10 @@ public class Peta extends JPanel {
     }
 
     public void isCompleted() {
-        int jumBola = bola.size();//jumlah bola
+        int jumBola = orang.size();//jumlah bola
         int goal = 0;
-        for (int i = 0; i < bola.size(); i++) {
-            Bola bol = (Bola) bola.get(i);//ambil posisi bola
+        for (int i = 0; i < orang.size(); i++) {
+            orang bol = (orang) orang.get(i);//ambil posisi bola
             for (int j = 0; j < gawang.size(); j++) {
                 Gawang gaw = (Gawang) gawang.get(j);//ambil posisi gawang
                 if (bol.getPosisiX() == gaw.getPosisiX() && bol.getPosisiY() == gaw.getPosisiY()) {
@@ -505,7 +505,7 @@ public class Peta extends JPanel {
     public void restartLevel() {
         Allperintah.clear();//hapus semua perintah yang tersimpan
         gawang.clear();//hapus gawang
-        bola.clear();//hapus bola
+        orang.clear();//hapus bola
         tembok.clear();//hapus tembok
         map.clear();//hapus map
         setPeta(Alamatpeta);//set ulang gambar peta
