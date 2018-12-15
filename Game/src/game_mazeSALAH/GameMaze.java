@@ -1,6 +1,5 @@
-package game_maze;
+package game_mazeSALAH;
 
-import game_maze.Peta;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

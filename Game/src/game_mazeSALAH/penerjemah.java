@@ -1,4 +1,4 @@
-package game_maze;
+package game_mazeSALAH;
 
 public class penerjemah {
 
