@@ -517,38 +517,4 @@ public class Peta extends JPanel {
         return bantu;
     }
 
-//    public static void simpan(File file) {
-//        ObjectOutputStream objectOut = null;
-//        try {
-//            objectOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
-//            objectOut.writeObject(map);
-//            objectOut.close();
-//        } catch (IOException ex) {
-//            Logger.getLogger(Peta.class.getName()).log(Level.SEVERE, null, ex);
-//        } finally {
-//            try {
-//                objectOut.close();
-//            } catch (IOException ex) {
-//                Logger.getLogger(Peta.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//    }
-//
-//    public static void baca(File file) throws ClassNotFoundException {
-//        ObjectInputStream objectIn = null;
-//        try {
-//            objectIn = new ObjectInputStream(new FileInputStream(file));
-//            map.removeAll(map);
-//            map = (ArrayList<Peta>) objectIn.readObject();
-//            objectIn.close();
-//        } catch (IOException ex) {
-//            Logger.getLogger(Peta.class.getName()).log(Level.SEVERE, null, ex);
-//        } finally {
-//            try {
-//                objectIn.close();
-//            } catch (IOException ex) {
-//                Logger.getLogger(Peta.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//    }
 }
