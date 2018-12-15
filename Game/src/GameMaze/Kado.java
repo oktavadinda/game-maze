@@ -1,4 +1,4 @@
-package GameMaze_FIX;
+package GameMaze;
 
 import java.awt.Image;
 import java.net.URL;

@@ -1,6 +1,6 @@
-package GameMaze_FIX;
+package GameMaze;
 
-import static GameMaze_FIX.Peta.map;
+import static GameMaze.Peta.map;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

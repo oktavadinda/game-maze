@@ -1,4 +1,4 @@
-package GameMaze_FIX;
+package GameMaze;
 
 public class penerjemah {
 
