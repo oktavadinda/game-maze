@@ -113,7 +113,7 @@ public class Peta extends JPanel {
                     for (int i = 0; i < Integer.parseInt(String.valueOf(in[1])); i++) {
                         if (cekObjekNabrakTembok(maze, "u")) {
                             return;
-                        } else if (cekBolaPemainTembok("u")) {
+                        } else if (cekKadoPemainTembok("u")) {
                             return;
                         } else {
                             maze.Gerak(0, -jarak);
@@ -124,7 +124,7 @@ public class Peta extends JPanel {
                     for (int i = 0; i < Integer.parseInt(String.valueOf(in[1])); i++) {
                         if (cekObjekNabrakTembok(maze, "d")) {
                             return;
-                        } else if (cekBolaPemainTembok("d")) {
+                        } else if (cekKadoPemainTembok("d")) {
                             return;
                         } else {
                             maze.Gerak(0, jarak);
@@ -135,7 +135,7 @@ public class Peta extends JPanel {
                     for (int i = 0; i < Integer.parseInt(String.valueOf(in[1])); i++) {
                         if (cekObjekNabrakTembok(maze, "r")) {
                             return;
-                        } else if (cekBolaPemainTembok("r")) {
+                        } else if (cekKadoPemainTembok("r")) {
                             return;
                         } else {
                             maze.Gerak(jarak, 0);
@@ -146,7 +146,7 @@ public class Peta extends JPanel {
                     for (int i = 0; i < Integer.parseInt(String.valueOf(in[1])); i++) {
                         if (cekObjekNabrakTembok(maze, "l")) {
                             return;
-                        } else if (cekBolaPemainTembok("l")) {
+                        } else if (cekKadoPemainTembok("l")) {
                             return;
                         } else {
                             maze.Gerak(-jarak, 0);
@@ -209,7 +209,7 @@ public class Peta extends JPanel {
         return bantu;//default return false
     }
 
-    private boolean cekBolaNabrakBola(Pixel objek, String input) {
+    private boolean cekKadoNabrakKado(Pixel objek, String input) {
         boolean bantu = false;
         if (input.equalsIgnoreCase("l")) {
             for (int i = 0; i < kado.size(); i++) {
@@ -251,13 +251,13 @@ public class Peta extends JPanel {
         return bantu;//default return false
     }
 
-    private boolean cekBolaPemainTembok(String input) {
+    private boolean cekKadoPemainTembok(String input) {
         boolean bantu = false;
         if (input.equalsIgnoreCase("l")) {
             for (int i = 0; i < kado.size(); i++) {
                 Kado bol1 = (Kado) kado.get(i);//ambil posisi bola
                 if (maze.PosisiKiriObjek(bol1)) {//cek apakah pemain sebelah kiri bola ke i
-                    if (cekBolaNabrakBola(bol1, "l")) {//cek apakah bola ke satu nabrak tembok.
+                    if (cekKadoNabrakKado(bol1, "l")) {//cek apakah bola ke satu nabrak tembok.
                         bantu = true;//ya, tidak boleh bergerak.
                         break;//hentikan proses looping i
                     } else if (cekObjekNabrakTembok(bol1, "l")) {//cek apakah bola ke satu nabrak tembok.
@@ -273,7 +273,7 @@ public class Peta extends JPanel {
             for (int i = 0; i < kado.size(); i++) {
                 Kado bol1 = (Kado) kado.get(i);//ambil posisi bola
                 if (maze.PosisiKananObjek(bol1)) {//cek apakah pemain sebelah kanan bola ke i
-                    if (cekBolaNabrakBola(bol1, "r")) {//cek apakah bola ke satu nabrak tembok.
+                    if (cekKadoNabrakKado(bol1, "r")) {//cek apakah bola ke satu nabrak tembok.
                         bantu = true;//ya, tidak boleh bergerak.
                         break;//hentikan proses looping i
                     } else if (cekObjekNabrakTembok(bol1, "r")) {//cek apakah bola ke satu nabrak tembok.
@@ -289,7 +289,7 @@ public class Peta extends JPanel {
             for (int i = 0; i < kado.size(); i++) {
                 Kado bol1 = (Kado) kado.get(i);//ambil posisi bola
                 if (maze.PosisiAtasObjek(bol1)) {//cek apakah bola 1 di atas pemain
-                    if (cekBolaNabrakBola(bol1, "u")) {//cek apakah bola ke satu nabrak tembok.
+                    if (cekKadoNabrakKado(bol1, "u")) {//cek apakah bola ke satu nabrak tembok.
                         bantu = true;//ya, tidak boleh bergerak.
                         break;//hentikan proses looping i
                     } else if (cekObjekNabrakTembok(bol1, "u")) {//cek apakah bola ke satu nabrak tembok.
@@ -305,7 +305,7 @@ public class Peta extends JPanel {
             for (int i = 0; i < kado.size(); i++) {
                 Kado bol1 = (Kado) kado.get(i);//ambil posisi bola
                 if (maze.PosisiBawahObjek(bol1)) {//cek apakah bola 1 di bawah pemain
-                    if (cekBolaNabrakBola(bol1, "d")) {//cek apakah bola ke satu nabrak tembok.
+                    if (cekKadoNabrakKado(bol1, "d")) {//cek apakah bola ke satu nabrak tembok.
                         bantu = true;//ya, tidak boleh bergerak.
                         break;//hentikan proses looping i
                     } else if (cekObjekNabrakTembok(bol1, "d")) {//cek apakah bola ke satu nabrak tembok.
@@ -330,7 +330,7 @@ public class Peta extends JPanel {
             if (in[0].equalsIgnoreCase("u")) {
                 if (cekObjekNabrakTembok(maze, "d")) {
                     return;
-                } else if (cekUndoBola("d")) {
+                } else if (cekUndoKado("d")) {
                     return;
                 } else {
                     maze.Gerak(0, jarak);
@@ -340,7 +340,7 @@ public class Peta extends JPanel {
             } else if (in[0].equalsIgnoreCase("d")) {
                 if (cekObjekNabrakTembok(maze, "u")) {
                     return;
-                } else if (cekUndoBola("u")) {
+                } else if (cekUndoKado("u")) {
                     return;
                 } else {
                     maze.Gerak(0, -jarak);
@@ -350,7 +350,7 @@ public class Peta extends JPanel {
             } else if (in[0].equalsIgnoreCase("r")) {
                 if (cekObjekNabrakTembok(maze, "l")) {
                     return;
-                } else if (cekUndoBola("l")) {
+                } else if (cekUndoKado("l")) {
                     return;
                 } else {
                     maze.Gerak(-jarak, 0);
@@ -360,7 +360,7 @@ public class Peta extends JPanel {
             } else if (in[0].equalsIgnoreCase("l")) {
                 if (cekObjekNabrakTembok(maze, "r")) {
                     return;
-                } else if (cekUndoBola("r")) {
+                } else if (cekUndoKado("r")) {
                     return;
                 } else {
                     maze.Gerak(jarak, 0);
@@ -371,7 +371,7 @@ public class Peta extends JPanel {
         }
     }
 
-    private boolean cekUndoBola(String type) {
+    private boolean cekUndoKado(String type) {
         if (type == "u") {
             for (int i = 0; i < kado.size(); i++) {
                 Kado bol = (Kado) kado.get(i);
