@@ -1,23 +1,24 @@
 package GameMaze;
+
 /**
- * 
+ *
  * @author by okta vadinda (175314107)
  */
 import java.awt.Image;
 
 public class Pixel {
-    
+
     private int posisiX;
     private int posisiY;
     private Image image;
-    
+
     private int Jarak = 20;
-    
+
     public Pixel(int x, int y) {
         this.posisiX = x;
         this.posisiY = y;
     }
-    
+
     public int getPosisiX() {
         return posisiX;
     }
@@ -41,9 +42,10 @@ public class Pixel {
     public void setImage(Image image) {
         this.image = image;
     }
-    
+
     public boolean PosisiKiriObjek(Pixel Objek) {
-        if (((this.getPosisiX() - Jarak) == Objek.getPosisiX()) && (this.getPosisiY() == Objek.getPosisiY())) {
+        if (((this.getPosisiX() - Jarak) == Objek.getPosisiX())
+                && (this.getPosisiY() == Objek.getPosisiY())) {
             return true;
         } else {
             return false;
@@ -51,7 +53,8 @@ public class Pixel {
     }
 
     public boolean PosisiKananObjek(Pixel Objek) {
-        if (((this.getPosisiX() + Jarak) == Objek.getPosisiX()) && (this.getPosisiY() == Objek.getPosisiY())) {
+        if (((this.getPosisiX() + Jarak) == Objek.getPosisiX())
+                && (this.getPosisiY() == Objek.getPosisiY())) {
             return true;
         } else {
             return false;
@@ -59,7 +62,8 @@ public class Pixel {
     }
 
     public boolean PosisiAtasObjek(Pixel Objek) {
-        if (((this.getPosisiY() - Jarak) == Objek.getPosisiY()) && (this.getPosisiX() == Objek.getPosisiX())) {
+        if (((this.getPosisiY() - Jarak) == Objek.getPosisiY())
+                && (this.getPosisiX() == Objek.getPosisiX())) {
             return true;
         } else {
             return false;
@@ -67,7 +71,8 @@ public class Pixel {
     }
 
     public boolean PosisiBawahObjek(Pixel Objek) {
-        if (((this.getPosisiY() + Jarak) == Objek.getPosisiY()) && (this.getPosisiX() == Objek.getPosisiX())) {
+        if (((this.getPosisiY() + Jarak) == Objek.getPosisiY())
+                && (this.getPosisiX() == Objek.getPosisiX())) {
             return true;
         } else {
             return false;
