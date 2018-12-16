@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 public class Kado extends Pixel {
     
     public Kado(int x, int y) {
-        super(x, y);//mengakses constructor superclass (pixel) oleh subclass (bola) dan langsung di set nilai xy bola.
+        super(x, y);//mengakses constructor superclass (pixel) oleh subclass (kado) dan langsung di set nilai xy bola.
         URL loc = this.getClass().getResource("kado.png");
         ImageIcon g = new ImageIcon(loc);
         Image image = g.getImage();
