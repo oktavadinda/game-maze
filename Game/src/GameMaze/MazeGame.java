@@ -1,5 +1,8 @@
 package GameMaze;
-
+/**
+ * 
+ * @author by okta vadinda (175314107)
+ */
 import static GameMaze.Peta.map;
 import java.io.File;
 import java.io.FileInputStream;

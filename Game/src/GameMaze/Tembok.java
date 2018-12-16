@@ -1,5 +1,8 @@
 package GameMaze;
-
+/**
+ *
+ * @author by okta vadinda (175314107)
+ */
 import java.awt.Image;
 import java.net.URL;
 import javax.swing.ImageIcon;

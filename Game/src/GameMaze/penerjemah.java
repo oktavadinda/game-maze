@@ -1,5 +1,8 @@
 package GameMaze;
-
+/**
+ * 
+ * @author okta vadinda (175314107)
+ */
 public class penerjemah {
 
     public static String terjemahan(String input) {

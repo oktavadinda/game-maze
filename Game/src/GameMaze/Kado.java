@@ -1,5 +1,8 @@
 package GameMaze;
-
+/**
+ * 
+ * @author by okta vadinda (175314107)
+ */
 import java.awt.Image;
 import java.net.URL;
 import javax.swing.ImageIcon;
@@ -7,7 +10,7 @@ import javax.swing.ImageIcon;
 public class Kado extends Pixel {
     
     public Kado(int x, int y) {
-        super(x, y);//mengakses constructor superclass (pixel) oleh subclass (kado) dan langsung di set nilai xy bola.
+        super(x, y);//mengakses constructor superclass (pixel) oleh subclass (kado) dan langsung di set nilai xy kado.
         URL loc = this.getClass().getResource("kado.png");
         ImageIcon g = new ImageIcon(loc);
         Image image = g.getImage();

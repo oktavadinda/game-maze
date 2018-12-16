@@ -1,5 +1,8 @@
 package GameMaze;
-
+/**
+ * 
+ * @author by okta vadinda (175314107)
+ */
 import java.awt.Image;
 
 public class Pixel {

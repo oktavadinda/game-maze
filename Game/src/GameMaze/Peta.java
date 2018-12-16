@@ -1,5 +1,8 @@
 package GameMaze;
-
+/**
+ * 
+ * @author by okta vadinda (175314107)
+ */
 import java.awt.Color;
 import java.awt.Graphics;
 import java.io.BufferedOutputStream;
@@ -213,7 +216,7 @@ public class Peta extends JPanel {
         boolean bantu = false;
         if (input.equalsIgnoreCase("l")) {
             for (int i = 0; i < kado.size(); i++) {
-                Kado bol = (Kado) kado.get(i);//ambil posisi bola
+                Kado bol = (Kado) kado.get(i);//ambil posisi kado
                 if (objek.PosisiKiriObjek(bol)) {
                     bantu = true;
                     break;
@@ -221,7 +224,7 @@ public class Peta extends JPanel {
             }
         } else if (input.equalsIgnoreCase("r")) {
             for (int i = 0; i < kado.size(); i++) {
-                Kado bol = (Kado) kado.get(i);//ambil posisi bola
+                Kado bol = (Kado) kado.get(i);//ambil posisi kado
                 if (objek.PosisiKananObjek(bol)) {
                     bantu = true;
                     break;
@@ -230,7 +233,7 @@ public class Peta extends JPanel {
 
         } else if (input.equalsIgnoreCase("u")) {
             for (int i = 0; i < kado.size(); i++) {
-                Kado bol = (Kado) kado.get(i);//ambil posisi bola
+                Kado bol = (Kado) kado.get(i);//ambil posisi kado
                 if (objek.PosisiAtasObjek(bol)) {
                     bantu = true;
                     break;
@@ -239,7 +242,7 @@ public class Peta extends JPanel {
 
         } else if (input.equalsIgnoreCase("d")) {
             for (int i = 0; i < kado.size(); i++) {
-                Kado bol = (Kado) kado.get(i);//ambil posisi bola
+                Kado bol = (Kado) kado.get(i);//ambil posisi kado
                 if (objek.PosisiBawahObjek(bol)) {
                     bantu = true;
                     break;
@@ -255,64 +258,64 @@ public class Peta extends JPanel {
         boolean bantu = false;
         if (input.equalsIgnoreCase("l")) {
             for (int i = 0; i < kado.size(); i++) {
-                Kado bol1 = (Kado) kado.get(i);//ambil posisi bola
-                if (maze.PosisiKiriObjek(bol1)) {//cek apakah pemain sebelah kiri bola ke i
-                    if (cekKadoNabrakKado(bol1, "l")) {//cek apakah bola ke satu nabrak tembok.
+                Kado bol1 = (Kado) kado.get(i);//ambil posisi kado
+                if (maze.PosisiKiriObjek(bol1)) {//cek apakah pemain sebelah kiri kado ke i
+                    if (cekKadoNabrakKado(bol1, "l")) {//cek apakah kado ke satu nabrak tembok.
                         bantu = true;//ya, tidak boleh bergerak.
                         break;//hentikan proses looping i
-                    } else if (cekObjekNabrakTembok(bol1, "l")) {//cek apakah bola ke satu nabrak tembok.
+                    } else if (cekObjekNabrakTembok(bol1, "l")) {//cek apakah kado ke satu nabrak tembok.
                         bantu = true;//ya, tidak boleh bergerak.
                         break;//hentikan proses looping i
                     } else {
-                        bol1.Gerak(-jarak, 0);//bola ikut bergerak ke kiri
+                        bol1.Gerak(-jarak, 0);//kado ikut bergerak ke kiri
                         isCompleted();
                     }
                 }
             }
         } else if (input.equalsIgnoreCase("r")) {
             for (int i = 0; i < kado.size(); i++) {
-                Kado bol1 = (Kado) kado.get(i);//ambil posisi bola
-                if (maze.PosisiKananObjek(bol1)) {//cek apakah pemain sebelah kanan bola ke i
-                    if (cekKadoNabrakKado(bol1, "r")) {//cek apakah bola ke satu nabrak tembok.
+                Kado bol1 = (Kado) kado.get(i);//ambil posisi kado
+                if (maze.PosisiKananObjek(bol1)) {//cek apakah pemain sebelah kanan kado ke i
+                    if (cekKadoNabrakKado(bol1, "r")) {//cek apakah kado ke satu nabrak tembok.
                         bantu = true;//ya, tidak boleh bergerak.
                         break;//hentikan proses looping i
-                    } else if (cekObjekNabrakTembok(bol1, "r")) {//cek apakah bola ke satu nabrak tembok.
+                    } else if (cekObjekNabrakTembok(bol1, "r")) {//cek apakah kado ke satu nabrak tembok.
                         bantu = true;//ya, tidak boleh bergerak.
                         break;//hentikan proses looping i
                     } else {
-                        bol1.Gerak(jarak, 0);//bola ikut bergerak ke kanan
+                        bol1.Gerak(jarak, 0);//kado ikut bergerak ke kanan
                         isCompleted();
                     }
                 }
             }
         } else if (input.equalsIgnoreCase("u")) {
             for (int i = 0; i < kado.size(); i++) {
-                Kado bol1 = (Kado) kado.get(i);//ambil posisi bola
-                if (maze.PosisiAtasObjek(bol1)) {//cek apakah bola 1 di atas pemain
-                    if (cekKadoNabrakKado(bol1, "u")) {//cek apakah bola ke satu nabrak tembok.
+                Kado bol1 = (Kado) kado.get(i);//ambil posisi kado
+                if (maze.PosisiAtasObjek(bol1)) {//cek apakah kado 1 di atas pemain
+                    if (cekKadoNabrakKado(bol1, "u")) {//cek apakah kado ke satu nabrak tembok.
                         bantu = true;//ya, tidak boleh bergerak.
                         break;//hentikan proses looping i
-                    } else if (cekObjekNabrakTembok(bol1, "u")) {//cek apakah bola ke satu nabrak tembok.
+                    } else if (cekObjekNabrakTembok(bol1, "u")) {//cek apakah kado ke satu nabrak tembok.
                         bantu = true;//ya, tidak boleh bergerak.
                         break;//hentikan proses looping i
                     } else {
-                        bol1.Gerak(0, -jarak);//bola ikut bergerak ke atas
+                        bol1.Gerak(0, -jarak);//kado ikut bergerak ke atas
                         isCompleted();
                     }
                 }
             }
         } else if (input.equalsIgnoreCase("d")) {
             for (int i = 0; i < kado.size(); i++) {
-                Kado bol1 = (Kado) kado.get(i);//ambil posisi bola
-                if (maze.PosisiBawahObjek(bol1)) {//cek apakah bola 1 di bawah pemain
-                    if (cekKadoNabrakKado(bol1, "d")) {//cek apakah bola ke satu nabrak tembok.
+                Kado bol1 = (Kado) kado.get(i);//ambil posisi kado
+                if (maze.PosisiBawahObjek(bol1)) {//cek apakah kado 1 di bawah pemain
+                    if (cekKadoNabrakKado(bol1, "d")) {//cek apakah kado ke satu nabrak tembok.
                         bantu = true;//ya, tidak boleh bergerak.
                         break;//hentikan proses looping i
-                    } else if (cekObjekNabrakTembok(bol1, "d")) {//cek apakah bola ke satu nabrak tembok.
+                    } else if (cekObjekNabrakTembok(bol1, "d")) {//cek apakah kado ke satu nabrak tembok.
                         bantu = true;//ya, tidak boleh bergerak.
                         break;//hentikan proses looping i
                     } else {
-                        bol1.Gerak(0, jarak);//bola ikut bergerak ke bawah
+                        bol1.Gerak(0, jarak);//kado ikut bergerak ke bawah
                         isCompleted();
                     }
                 }
@@ -501,8 +504,8 @@ public class Peta extends JPanel {
 
     public void restartLevel() {
         Allperintah.clear();//hapus semua perintah yang tersimpan
-        pintu.clear();//hapus gawang
-        kado.clear();//hapus bola
+        pintu.clear();//hapus pintu
+        kado.clear();//hapus kado
         tembok.clear();//hapus tembok
         map.clear();//hapus map
         setPeta(Alamatpeta);//set ulang gambar peta
